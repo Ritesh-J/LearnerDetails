@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class LearnerService {
@@ -19,5 +20,14 @@ public class LearnerService {
 
     public List<Learner> findLearnerDetails(){
         return learnerRepository.findAll();
+    }
+
+    public Optional<Learner> findLearnerDetailsById(Integer id) {
+        return learnerRepository.findById(id);
+    }
+
+    public String deleteLearnerDetailsById(Integer id) {
+        learnerRepository.deleteById(id);
+        return "Deleted";
     }
 }

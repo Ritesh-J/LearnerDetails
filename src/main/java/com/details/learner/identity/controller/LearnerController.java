@@ -3,11 +3,13 @@ package com.details.learner.identity.controller;
 import com.details.learner.identity.model.Learner;
 import com.details.learner.identity.service.LearnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/learner")
@@ -23,6 +25,16 @@ public class LearnerController {
     @RequestMapping("/details")
     public List<Learner> findLearnerDetails() {
         return learnerService.findLearnerDetails();
+    }
+
+    @RequestMapping("/details/{id}")
+    public Optional<Learner> findDetailsById(@PathVariable("id") int id) {
+        return learnerService.findLearnerDetailsById(id);
+    }
+
+    @RequestMapping("/details/delete/{id}")
+    public String deleteById(@PathVariable("id") int id) {
+        return learnerService.deleteLearnerDetailsById(id);
     }
 
 
