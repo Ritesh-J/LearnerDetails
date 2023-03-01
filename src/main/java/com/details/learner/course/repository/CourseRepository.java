@@ -13,6 +13,9 @@ public interface CourseRepository extends CrudRepository<Course, Integer> {
     public List<Course> findAll();
     public Optional<Course> findById(Integer id);
     public void deleteById(Integer id);
+    public boolean existsById(Integer id);
+    public long count();
+    public void deleteAll();
 
 
 

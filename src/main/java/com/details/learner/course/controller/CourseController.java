@@ -37,4 +37,19 @@ public class CourseController {
         return courseService.deleteCourseById(id);
 
     }
+
+    @RequestMapping("/details/count")
+    public long countDetails() {
+        return courseService.countDetails();
+    }
+
+    @RequestMapping("/details/exists/{id}")
+    public boolean existsDetailsById(@PathVariable("id") int id) {
+        return courseService.existsDetails(id);
+    }
+
+    @RequestMapping("/details/deleteAll")
+    public String deleteAllDetails() {
+        return courseService.deleteAllDetails();
+    }
 }

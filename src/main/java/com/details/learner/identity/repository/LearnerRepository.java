@@ -14,6 +14,11 @@ public interface LearnerRepository extends CrudRepository<Learner, Integer> {
     public List<Learner> findAll();
     public Optional<Learner> findById(Integer id);
     public void deleteById(Integer id);
+    public boolean existsById(Integer id);
+    public long count();
+    public void deleteAll();
+
+
 
 
 

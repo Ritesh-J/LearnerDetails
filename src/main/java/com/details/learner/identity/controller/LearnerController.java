@@ -14,6 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/learner")
 public class LearnerController {
+    //Autowiring LearnerService
     @Autowired
     private LearnerService learnerService;
 
@@ -35,6 +36,21 @@ public class LearnerController {
     @RequestMapping("/details/delete/{id}")
     public String deleteById(@PathVariable("id") int id) {
         return learnerService.deleteLearnerDetailsById(id);
+    }
+
+    @RequestMapping("/details/count")
+    public long countDetails() {
+        return learnerService.countDetails();
+    }
+
+    @RequestMapping("/details/exists/{id}")
+    public boolean existsDetailsById(@PathVariable("id") int id) {
+        return learnerService.existsDetails(id);
+    }
+
+    @RequestMapping("/details/deleteAll")
+    public String deleteAllDetails() {
+        return learnerService.deleteAllDetails();
     }
 
 

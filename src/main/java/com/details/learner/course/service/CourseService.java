@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Service
 public class CourseService {
+    //Autowiring CourseRepository
     @Autowired
     private CourseRepository courseRepository;
 
@@ -29,8 +30,18 @@ public class CourseService {
     public String deleteCourseById(Integer id) {
         courseRepository.deleteById(id);
         return "Deleted";
+    }
 
+    public long countDetails() {
+        return courseRepository.count();
+    }
 
+    public boolean existsDetails(Integer id) {
+        return courseRepository.existsById(id);
+    }
+    public String deleteAllDetails() {
+        courseRepository.deleteAll();
+        return "Deleted All";
     }
 
 
